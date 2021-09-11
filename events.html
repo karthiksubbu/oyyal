@@ -19,26 +19,7 @@
 </head>
 <body>
 <!-- Left Panel -->
-<div class="wrap-leftpanel"> <a href="http://www.oyyal.com" id="logo"><img src="_assets/_images/oyyal_logo.png" alt="logo" title="OYYAL Foundation | Non-Governmental Organization (NGO)" /></a>
-	  <div class="menu_panel">
-      	<a href="aboutus.html" id="reg_pub">Registered Public</a>  
-		<a href="aboutus.html" id="menu_abt"><span class="menu_abt">about us</span></a> 
-		<a href="whatwedo.html?tag=1" id="menu_wht"><span class="menu_wht">what we do</span></a> 
-		<a href="events.html" id="menu_eve" class="active"><span class="menu_eve">events</span></a> 
-		<a href="archives.html" id="menu_arc"><span class="menu_arc">archives</span></a> 
-		<a href="contactus.html" id="menu_con"><span class="menu_con">contact us</span></a> 
-		<a href="#" id="contribute"><span class="contribute">want to<br>contribute</span></a> 
-	</div>
-<p class="cont_det">090 08 111762 <br />
-    <a href="mailto:oyyalfoundation@gmail.com">oyyalfoundation@gmail.com</a></p>
-  <div class="socialmedia"> 
-      <a href="https://twitter.com/Oyyalfoundation" target="_blank"><img src="_assets/_images/twitter_icon.png" alt="Twitter" /></a> 
-      <a href="http://www.facebook.com/oyyalfoundation" target="_blank"><img src="_assets/_images/facebook_icon.png" alt="Facebook" /></a> 
-      <a href="http://in.linkedin.com/pub/oyyal-foundation/a3/820/395" target="_blank"><img src="_assets/_images/linkedin_icon.png" alt="LinkedIn" /></a> 
-  </div>
-  <div class="copyright"> <em>Powered by</em> <a href="http://www.oyyal.com" target="_blank">Oyyal</a><br />
-    &copy; 2014 Oyyal. All Rights Reserved </div>
-</div>
+<div id="headerContent"></div>
 <!-- Left Panel --> 
 <!-- Right Full Section --> 
 <div class="right-full-section" style="overflow:hidden !important;">
@@ -767,67 +748,7 @@ function isNumber(evt) {
 	}
 	return true;
 }
-$(document).ready(function() {
-	jQuery.validator.setDefaults({ 
-		errorPlacement: function(error, element) { 
-			error.appendTo(element.parent().find('span.errs')); 
-		} 
-	});
-	$("#volunteering").validate({
-		rules: {
-			name: { required: true,},
-			frd_name: { required: true, },
-			frd_email: { required: true, email:true },
-		}, submitHandler: function(){
-			var msg = document.getElementById("messagebox");
-			var valname = document.getElementById("name").value;
-			var valfrdmobile = document.getElementById("frd_mobile").value;
-			var valfrdemail = document.getElementById("frd_email").value;
-			
-			var url = 'mail.php?name='+valname+'&frdmobile='+valfrdmobile+'&frdemail='+valfrdemail;
-			msg.innerHTML = '<span class="alert-msg">sending your request...</span>';
-			var xmlhttp;
-			if(window.XMLHttpRequest) { xmlhttp = new XMLHttpRequest(); }else{ xmlhttp=new ActiveXObject("Microsoft.XMLHTTP"); }
-			xmlhttp.open("GET",url,true);
-			xmlhttp.send();
-			xmlhttp.onreadystatechange=function() {
-				if((xmlhttp.readyState==4) && (xmlhttp.status==200)){
-					result=xmlhttp.responseText.split(",");
-					var val = result[0].substring(0, 1);
-					if(val == '1'){
-						msg.innerHTML = '<span class="success-msg">Request for joining hands with Oyyal sent to our support team. They will contact you as soon as possible.</span>';
-						$('#volunteering')[0].reset();
-					}else{
-						msg.innerHTML = '<span class="error-msg">Mail Function not working. Kindly contact the site administrator!</span>';
-					}
-				}
-			}				
-			return false;
-		}
-	});
-	/*- Contribute links -*/
-	$("#contribute").click(function(event){
-		event.preventDefault();
-		$('#volunteering')[0].reset();
-		$(".errs, #messagebox").html(" ");
-		$(".popup-box").fadeIn( "slow", function() {
-			$("body, html").css("overflow","hidden"); 
-			$("#contributesec").delay(500).animate({right: '50%'}); 
-		});
-	});
-	$(document).keyup(function(e) { 
-		if (e.keyCode == 27) { 
-			$(".popup-box").fadeOut("slow"); 
-			$(".popup-contentcase").delay(100).animate({right: '-50%'});
-			$("body, html").css("overflow","auto"); 
-		} 
-	});
-	$(".close").click(function() { 
-		$(".popup-box").fadeOut("slow"); 
-		$(".popup-contentcase").delay(100).animate({right: '-50%'});
-		$("body, html").css("overflow","auto");  
-	});
-});
 </script> 
+<script type="text/javascript" src="source/helpers/load_html.js"></script>
 </body>
 </html>
