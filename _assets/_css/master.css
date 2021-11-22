@@ -1126,7 +1126,7 @@ body, html {
 	font-family: 'Calibri';
 	position: absolute;
 	width: 800px;
-	height: 550px;
+	min-height: 550px;
 	background: #FFF;
 	right: -50%;/**/
 	margin-right: -400px;
@@ -1219,7 +1219,7 @@ body, html {
 	line-height: 16px;
 }
 .content-title {
-	font-size: 18px;
+	font-size: 13px;
 	font-weight: bold;
 	padding-bottom: 15px;
 }
@@ -1244,7 +1244,7 @@ body, html {
 	line-height: 19px;
 }
 .content-title {
-	font-size: 18px;
+	font-size: 13px;
 	font-weight: bold;
 	padding-bottom: 15px;
 }
@@ -1401,7 +1401,7 @@ body, html {
 	line-height: 19px;
 }
 .content-title {
-	font-size: 18px;
+	font-size: 13px;
 	font-weight: bold;
 	padding-bottom: 15px;
 }
